@@ -1,0 +1,342 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e0e7c1;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  color: #4a5c1a;
+  margin-bottom: 20px;
+}
+
+.scorecard {
+  background-color: #7a8b3c;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 100px repeat(5, 1fr) 80px;
+  gap: 2px;
+  margin-bottom: 5px;
+}
+
+/* First column (labels) */
+.row > .cell:first-child {
+  grid-column: 1;
+  font-weight: bold;
+}
+
+.header {
+  background-color: #5a6b2c;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+
+/* Header first cell */
+.header > .cell:first-child {
+  justify-content: center;
+  padding: 0;
+}
+
+.crown-header {
+  display: none;
+}
+
+.cell {
+  min-width: 0;
+  padding: 8px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  box-sizing: border-box;
+  min-height: 40px;
+}
+
+.icon-header {
+  font-size: 1.5em;
+  padding: 8px 4px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.total-header, .total-cell {
+  background-color: #b2b97b;
+  font-weight: bold;
+  color: #4a5c1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.num-input {
+  width: 100%;
+  max-width: 80px;
+  padding: 0;
+  border: 2px solid #8a9a5b;
+  border-radius: 6px;
+  text-align: center;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  height: 38px;
+  margin: 0;
+  font-size: 16px;
+  color: #4a5c1a;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-appearance: none; /* Firefox */
+}
+
+/* Remove spinner buttons for Chrome, Safari, Edge, Opera */
+.num-input::-webkit-outer-spin-button,
+.num-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.num-input:focus {
+  outline: none;
+  border-color: #6b7c4a;
+  box-shadow: 0 0 0 3px rgba(138, 154, 91, 0.3);
+}
+
+.num-input:hover {
+  border-color: #6b7c4a;
+}
+
+.num-input::placeholder {
+  color: #a3aa8f;
+  opacity: 0.7;
+}
+
+.unlocked-container {
+  background-color: #e0e7c1;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.unlocked-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.unlocked-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  flex-shrink: 1;
+}
+
+.unlocked-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.unlocked-item:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.unlocked-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.unlocked-item input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.unlocked-input {
+  width: 50px;
+  padding: 0;
+  border: 2px solid #8a9a5b;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #ffffff;
+  font-size: 13px;
+  color: #4a5c1a;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  height: 26px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  margin-left: 4px;
+  -moz-appearance: none; /* Firefox */
+}
+
+/* Remove spinner buttons for Chrome, Safari, Edge, Opera */
+.unlocked-input::-webkit-outer-spin-button,
+.unlocked-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.unlocked-input:focus {
+  outline: none;
+  border-color: #6b7c4a;
+  box-shadow: 0 0 0 3px rgba(138, 154, 91, 0.3);
+}
+
+.unlocked-input:hover {
+  border-color: #6b7c4a;
+}
+
+.unlocked-input:disabled {
+  background-color: #f0f0f0;
+  border-color: #d0d0d0;
+  color: #a0a0a0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.unlocked-input::placeholder {
+  color: #a3aa8f;
+  opacity: 0.7;
+}
+
+.bottom-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  margin-top: 20px;
+  gap: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.player-names,
+.date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.player-names label,
+.date-field label {
+  font-weight: bold;
+  color: #4a5c1a;
+}
+
+.player-names input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 2px solid #8a9a5b;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 16px;
+  color: #4a5c1a;
+  box-sizing: border-box;
+  height: 38px;
+  transition: all 0.2s ease;
+}
+
+.player-names input:focus {
+  outline: none;
+  border-color: #6b7c4a;
+  box-shadow: 0 0 0 3px rgba(138, 154, 91, 0.3);
+}
+
+.date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.date-field label {
+  font-weight: bold;
+  color: #4a5c1a;
+}
+
+.date-display {
+  padding: 8px 10px;
+  background-color: #d9e1b6;
+  border-radius: 6px;
+  border: 2px solid #8a9a5b;
+  height: 38px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #4a5c1a;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.result-cell {
+  background-color: #b2b97b;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.result-label {
+  font-weight: bold;
+  color: #4a5c1a;
+  margin-bottom: 5px;
+}
+
+.result-value {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #2c3e1a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .row {
+    flex-wrap: wrap;
+  }
+  
+  .cell {
+    flex: 1 0 30%;
+    margin-bottom: 5px;
+  }
+  
+  .unlocked-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .unlocked-input {
+    width: 100%;
+    margin-top: 5px;
+  }
+  
+  .bottom-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .player-names,
+  .date-field,
+  .result-cell {
+    width: 100%;
+  }
+}
