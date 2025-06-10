@@ -2,6 +2,7 @@
   "name": "dorfromantik-calculator",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://janwennrich.github.io/dorfromantik",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
