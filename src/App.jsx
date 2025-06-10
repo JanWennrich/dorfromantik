@@ -88,6 +88,11 @@ export default function App() {
   return (
     <div className="container">
       <div className="scorecard">
+        {/* Header/Title */}
+        <div className="app-header">
+          <h1>Dorfromantik Score Calculator</h1>
+        </div>
+        
         {/* Header row */}
         <div className="row header">
           <div className="cell icon-header">👑</div>
@@ -183,6 +188,11 @@ export default function App() {
             <div className="result-value">{result}</div>
           </div>
         </div>
+      </div>
+      <div className="app-footer">
+        <a href="https://janwennrich.github.io/" target="_blank">
+          – Created by Jan W. –
+        </a>
       </div>
     </div>
   );
